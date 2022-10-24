@@ -76,8 +76,8 @@ def get_loader(args):
 
     train_count = len(datalist) - 40
     cache_dir = "/home/yujiannan/Projects/MONAI/data/temp/1"
-    train_ds = PersistentDataset(data=datalist[:3], transform=train_transforms, cache_dir=cache_dir)
-    val_ds = PersistentDataset(data=datalist[3:5], transform=val_transforms, cache_dir=cache_dir)
+    train_ds = PersistentDataset(data=datalist[:train_count], transform=train_transforms, cache_dir=cache_dir)
+    val_ds = PersistentDataset(data=datalist[train_count:], transform=val_transforms, cache_dir=cache_dir)
 
     num_workers = 4
     train_loader = DataLoader(
